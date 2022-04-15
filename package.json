@@ -1,5 +1,5 @@
 {
-    "name": "next-starter",
+    "name": "descript-weather",
     "version": "2.10.0",
     "description": "⏭ next.js starter",
     "keywords": [
@@ -13,9 +13,9 @@
         "heroicons",
         "pwa"
     ],
-    "homepage": "https://next-starter.bradgarropy.vercel.app",
+    "homepage": "https://descript-weather.bradgarropy.vercel.app",
     "bugs": {
-        "url": "https://github.com/bradgarropy/next-starter/issues"
+        "url": "https://github.com/bradgarropy/descript-weather/issues"
     },
     "license": "MIT",
     "author": {
@@ -25,7 +25,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://github.com/bradgarropy/next-starter"
+        "url": "https://github.com/bradgarropy/descript-weather"
     },
     "scripts": {
         "start": "next",

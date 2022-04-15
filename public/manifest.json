@@ -1,6 +1,6 @@
 {
-    "name": "next-starter",
-    "short_name": "next-starter",
+    "name": "descript-weather",
+    "short_name": "descript-weather",
     "theme_color": "#ffffff",
     "background_color": "#ffffff",
     "display": "standalone",

@@ -121,7 +121,7 @@ const IndexPage: FC = () => {
 
     return (
         <Layout>
-            <SEO title="next starter" />
+            <SEO title="descript weather" />
 
             <div className={IndexPageStyles.header}>
                 <h1>Weather</h1>
