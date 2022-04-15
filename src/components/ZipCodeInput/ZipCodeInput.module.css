@@ -1,0 +1,25 @@
+.form {
+    display: grid;
+    grid-auto-flow: column;
+    align-items: center;
+}
+
+.form > label {
+    margin-right: 0.5rem;
+}
+
+.form > input {
+    border-radius: 0.25rem 0rem 0rem 0.25rem;
+    padding: 0.5rem 0.5rem;
+    border-color: var(--black);
+    font-size: 1rem;
+}
+
+.form > button {
+    border-radius: 0rem 0.25rem 0.25rem 0rem;
+    border-color: var(--black);
+    border-left: none;
+    background: #fdba74;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+}
