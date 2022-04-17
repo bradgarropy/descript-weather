@@ -34,7 +34,10 @@ const WeatherCard: FC<WeatherCardProps> = ({location, weather, onDelete}) => {
                     className={WeatherCardStyles.delete}
                     onClick={() => onDelete(location)}
                 >
-                    <TrashIcon className={WeatherCardStyles.deleteIcon} />
+                    <TrashIcon
+                        aria-label="delete"
+                        className={WeatherCardStyles.deleteIcon}
+                    />
                 </button>
             </div>
 
@@ -51,6 +54,7 @@ const WeatherCard: FC<WeatherCardProps> = ({location, weather, onDelete}) => {
                     <span>Air Quality </span>
 
                     <div
+                        aria-label="quality"
                         style={{
                             width: "0.75rem",
                             height: "0.75rem",
