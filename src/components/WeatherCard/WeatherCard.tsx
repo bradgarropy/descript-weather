@@ -1,6 +1,5 @@
 import {TrashIcon} from "@heroicons/react/outline"
 import {FC} from "react"
-import {AirPollution} from "types/airPollution"
 import {Location} from "types/location"
 import {Weather} from "types/weather"
 
@@ -9,7 +8,6 @@ import WeatherCardStyles from "./WeatherCard.module.css"
 type WeatherCardProps = {
     location: Location
     weather: Weather
-    airPollution: AirPollution
     onDelete: (location: Location) => void
 }
 
@@ -21,12 +19,11 @@ const airQualityColors = {
     5: "#dc2626",
 }
 
-const WeatherCard: FC<WeatherCardProps> = ({
-    location,
-    weather,
-    airPollution,
-    onDelete,
-}) => {
+const WeatherCard: FC<WeatherCardProps> = ({location, weather, onDelete}) => {
+    if (!weather) {
+        return null
+    }
+
     return (
         <div className={WeatherCardStyles.card}>
             <div className={WeatherCardStyles.cardHeader}>
@@ -59,7 +56,7 @@ const WeatherCard: FC<WeatherCardProps> = ({
                             height: "0.75rem",
                             borderRadius: "100%",
                             backgroundColor:
-                                airQualityColors[airPollution.quality],
+                                airQualityColors[weather.airQuality],
                         }}
                     />
                 </div>

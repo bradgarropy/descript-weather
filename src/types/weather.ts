@@ -1,5 +1,9 @@
 type Weather = {
-    temperature: number
+    temperature: Temperature
+    airQuality: AirQuality
 }
 
-export type {Weather}
+type Temperature = number
+type AirQuality = number
+
+export type {AirQuality, Temperature, Weather}

@@ -1,6 +1,5 @@
-import {AirPollution} from "types/airPollution"
 import {Location} from "types/location"
-import {Weather} from "types/weather"
+import {AirQuality, Temperature, Weather} from "types/weather"
 
 const API_KEY = process.env.NEXT_PUBLIC_API_KEY
 
@@ -10,11 +9,23 @@ const WEATHER_URL = `${BASE_URL}/data/2.5/weather`
 const AIR_POLLUTION_URL = `${BASE_URL}/data/2.5/air_pollution`
 const GEOCODING_URL = `${BASE_URL}/geo/1.0/zip`
 
-const getWeather = async (zip: Location["zip"]): Promise<Weather> => {
+const getWeather = async (location: Location): Promise<Weather> => {
+    const promises = [getTemperature(location), getAirQuality(location)]
+    const [temperature, airQuality] = await Promise.all(promises)
+
+    const weather: Weather = {
+        temperature,
+        airQuality,
+    }
+
+    return weather
+}
+
+const getTemperature = async (location: Location): Promise<Temperature> => {
     const url = new URL(WEATHER_URL)
 
     const params = new URLSearchParams({
-        zip,
+        zip: location.zip,
         units: "imperial",
         appid: API_KEY,
     })
@@ -24,22 +35,16 @@ const getWeather = async (zip: Location["zip"]): Promise<Weather> => {
     const response = await fetch(url.toString())
     const json = await response.json()
 
-    const weather: Weather = {
-        temperature: json.main.temp,
-    }
-
-    return weather
+    const temperature: Temperature = json.main.temp
+    return temperature
 }
 
-const getAirPollution = async (
-    lat: Location["lat"],
-    lon: Location["long"],
-): Promise<AirPollution> => {
+const getAirQuality = async (location: Location): Promise<AirQuality> => {
     const url = new URL(AIR_POLLUTION_URL)
 
     const params = new URLSearchParams({
-        lat: lat.toString(),
-        lon: lon.toString(),
+        lat: location.lat.toString(),
+        lon: location.long.toString(),
         appid: API_KEY,
     })
 
@@ -48,11 +53,8 @@ const getAirPollution = async (
     const response = await fetch(url.toString())
     const json = await response.json()
 
-    const airPollution: AirPollution = {
-        quality: json.list[0].main.aqi,
-    }
-
-    return airPollution
+    const airQuality: AirQuality = json.list[0].main.aqi
+    return airQuality
 }
 
 const getLocation = async (zip: Location["zip"]): Promise<Location> => {
@@ -78,4 +80,4 @@ const getLocation = async (zip: Location["zip"]): Promise<Location> => {
     return location
 }
 
-export {getAirPollution, getLocation, getWeather}
+export {getAirQuality, getLocation, getTemperature, getWeather}

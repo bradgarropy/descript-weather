@@ -1,7 +1,7 @@
 {
     "name": "descript-weather",
-    "version": "2.10.0",
-    "description": "⏭ next.js starter",
+    "version": "1.0.0",
+    "description": "🌤 descript interview question - weather",
     "keywords": [
         "typescript",
         "react",
@@ -11,7 +11,10 @@
         "vercel",
         "nextjs",
         "heroicons",
-        "pwa"
+        "pwa",
+        "descript",
+        "interview",
+        "open-weather"
     ],
     "homepage": "https://descript-weather.bradgarropy.vercel.app",
     "bugs": {

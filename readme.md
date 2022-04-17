@@ -1,6 +1,6 @@
-# ⏭ next.js starter
+# 🌤 descript weather
 
-_A base starter with formatting, linting, serverless, CSS in JS, and SEO included._
+_In an interview with [Descript][descript], I was asked to build a weather dashboard. Here is my solution._
 
 [![vercel][vercel-badge]][vercel]
 [![github actions][github-actions-badge]][github-actions]
@@ -9,11 +9,24 @@ _A base starter with formatting, linting, serverless, CSS in JS, and SEO include
 [![contributors][contributors-badge]][contributors]
 [![discord][discord-badge]][discord]
 
-<p align="center">
-    <a href="https://descript-weather.bradgarropy.vercel.app">
-        <img alt="descript weather" src="./public/github.png" width="300">
-    </a>
-</p>
+## ❓ question
+
+Build a weather dashboard where the user can add and remove locations to view the weather. Locations should be added by zip code. The dashboard should display the temperature and the air quality for each location. Use the [OpenWeatherMap][open-weather] API to retrieve the weather information.
+
+_BONUS_: Once a location has been added, refresh its weather data every five seconds.
+
+## 🤔 assumptions
+
+Everything made sense, I made no assumptions!
+
+## 💀 execution
+
+```bash
+git clone https://github.com/bradgarropy/descript-weather.git
+cd descript-weather
+npm install
+npm start
+```
 
 ## ✨ contributors
 
@@ -43,3 +56,5 @@ _A base starter with formatting, linting, serverless, CSS in JS, and SEO include
 [contributors-badge]: https://img.shields.io/github/all-contributors/bradgarropy/descript-weather?style=flat-square
 [discord]: https://bradgarropy.com/discord
 [discord-badge]: https://img.shields.io/discord/748196643140010015?style=flat-square
+[descript]: https://descript.com
+[open-weather]: https://openweathermap.org
